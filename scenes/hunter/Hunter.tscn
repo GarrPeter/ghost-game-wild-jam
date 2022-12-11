@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://scenes/hunter/Hunter.gd" type="Script" id=1]
 [ext_resource path="res://sprites/hunter/hunter_sprite_on.png" type="Texture" id=2]
+[ext_resource path="res://scenes/flashlight/simple_beam/SimpleBeam.tscn" type="PackedScene" id=3]
 
 [sub_resource type="CircleShape2D" id=2]
 radius = 13.6015
@@ -16,3 +17,9 @@ texture = ExtResource( 2 )
 [node name="HunterCollisionBody" type="CollisionShape2D" parent="."]
 position = Vector2( -7, -1 )
 shape = SubResource( 2 )
+
+[node name="SimpleBeam" parent="." instance=ExtResource( 3 )]
+visible = false
+position = Vector2( 15, -35 )
+
+[editable path="SimpleBeam"]

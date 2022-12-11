@@ -12,6 +12,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	move(delta)
+	use_flashlight(delta)
 
 func move(delta):
 	var velocity = Vector2.ZERO
@@ -32,5 +33,9 @@ func move(delta):
 	var y_adjust = $HunterSprite.texture.get_height()/2
 	position.x = clamp(position.x, x_adjust, screen_size.x - x_adjust)
 	position.y = clamp(position.y, y_adjust, screen_size.y - y_adjust)
-	
 
+func use_flashlight(_delta):
+	if Input.is_action_pressed("toggle_flashlight"):
+		$SimpleBeam.visible = true
+	else:
+		$SimpleBeam.visible = false
