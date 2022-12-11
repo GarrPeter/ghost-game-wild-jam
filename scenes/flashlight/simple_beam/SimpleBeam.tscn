@@ -25,3 +25,5 @@ frames = SubResource( 1 )
 
 [node name="SimpleBeamCollisionBox" type="CollisionShape2D" parent="."]
 shape = SubResource( 2 )
+
+[connection signal="body_entered" from="." to="." method="_on_SimpleBeam_body_entered"]
