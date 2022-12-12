@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-var speed = 450
+var speed = 150
 var screen_size
 export var direction = PI / 2
 
