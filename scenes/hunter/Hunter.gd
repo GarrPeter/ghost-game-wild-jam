@@ -1,7 +1,12 @@
 extends Area2D
+class_name Hunter
 
+export var flashlight = preload("res://scenes/flashlight/simple_beam/SimpleBeam.tscn")
 export var speed = 300
 var screen_size
+
+var flashlight_instance
+const flashlight_offset = Vector2(15, -58)
 
 
 # Called when the node enters the scene tree for the first time.
@@ -38,6 +43,17 @@ func move(delta):
 
 func use_flashlight(_delta):
 	if Input.is_action_pressed("toggle_flashlight"):
-		$SimpleBeam.visible = true
-	else:
-		$SimpleBeam.visible = false
+		create_flashlight()
+	if Input.is_action_just_released("toggle_flashlight"):
+		remove_flashlight()
+
+
+func create_flashlight():
+	if not is_instance_valid(flashlight_instance) or flashlight_instance == null:
+		flashlight_instance = flashlight.instance()
+		flashlight_instance.position = flashlight_offset
+		self.add_child(flashlight_instance)
+
+func remove_flashlight():
+	if is_instance_valid(flashlight_instance):
+		flashlight_instance.queue_free()

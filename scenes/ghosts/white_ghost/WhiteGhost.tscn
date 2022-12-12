@@ -28,5 +28,3 @@ frames = SubResource( 1 )
 [node name="WhiteGhostCollisionShape" type="CollisionShape2D" parent="."]
 position = Vector2( -1, 2 )
 shape = SubResource( 2 )
-
-[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]

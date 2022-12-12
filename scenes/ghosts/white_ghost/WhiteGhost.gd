@@ -1,8 +1,10 @@
 extends KinematicBody2D
+class_name WhiteGhost
 
 var speed = 150
 var screen_size
 export var direction = PI / 2
+var frozen = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -11,11 +13,11 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
-	move(delta)
+	if not frozen:
+		move(delta)
 
 func move(delta):
 	var velocity = Vector2(cos(self.direction), sin(self.direction))
-	print(velocity)
 	velocity = velocity.normalized() * speed
 	
 	var collision = self.move_and_collide(velocity * delta)
@@ -35,3 +37,9 @@ func move(delta):
 func handle_border_collision():
 	var new_direction = self.direction - PI
 	self.direction = rand_range(-PI/4, PI/4) + new_direction
+
+func freeze():
+	self.frozen = true
+
+func unfreeze():
+	self.frozen = false
