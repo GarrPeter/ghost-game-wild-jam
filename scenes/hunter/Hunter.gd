@@ -1,6 +1,9 @@
 extends Area2D
 class_name Hunter
 
+signal flashlight_hit
+signal flashlight_exit
+
 export var flashlight = preload("res://scenes/flashlight/simple_beam/SimpleBeam.tscn")
 export var speed = 300
 var screen_size
@@ -53,7 +56,16 @@ func create_flashlight():
 		flashlight_instance = flashlight.instance()
 		flashlight_instance.position = flashlight_offset
 		self.add_child(flashlight_instance)
+		flashlight_instance.initialize_signals(self)
 
 func remove_flashlight():
 	if is_instance_valid(flashlight_instance):
 		flashlight_instance.queue_free()
+
+
+# Echo signals up
+func on_SimpleBeam_body_entered(body):
+	emit_signal("flashlight_hit", body)
+
+func on_SimpleBeam_body_exited(body):
+	emit_signal("flashlight_exit", body)
