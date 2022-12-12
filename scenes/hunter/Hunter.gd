@@ -26,7 +26,8 @@ func move(delta):
 		velocity.y += 1
 	
 	if velocity.length() > 0:
-		self.rotation = velocity.angle() + PI/2
+		if not Input.is_action_pressed("toggle_flashlight"):
+			self.rotation = velocity.angle() + PI/2
 		velocity = velocity.normalized() * speed
 	
 	position += velocity * delta
