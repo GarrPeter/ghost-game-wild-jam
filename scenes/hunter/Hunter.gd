@@ -7,10 +7,8 @@ signal flashlight_exit
 export var flashlight = preload("res://scenes/flashlight/simple_beam/SimpleBeam.tscn")
 export var speed = 300
 var screen_size
-var captured_ghosts = []
 
 var flashlight_instance
-const flashlight_offset = Vector2(15, -58)
 
 
 func _ready():
@@ -37,7 +35,7 @@ func move(delta):
 			self.rotation = velocity.angle() + PI/2
 		velocity = velocity.normalized() * speed
 	
-	move_and_collide(velocity*delta)
+	var _collision = move_and_collide(velocity*delta)
 
 
 func use_flashlight(_delta):
@@ -47,10 +45,13 @@ func use_flashlight(_delta):
 		remove_flashlight()
 
 
+func calc_beam_start_position(beam_offset: Vector2):
+	return $FlashlightPosition.position - beam_offset
+
 func create_flashlight():
 	if not is_instance_valid(flashlight_instance) or flashlight_instance == null:
 		flashlight_instance = flashlight.instance()
-		flashlight_instance.position = flashlight_offset
+		flashlight_instance.position = calc_beam_start_position(flashlight_instance.beam_offset())
 		self.add_child(flashlight_instance)
 		flashlight_instance.initialize_signals(self)
 
