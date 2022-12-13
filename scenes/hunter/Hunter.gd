@@ -65,7 +65,6 @@ func remove_flashlight():
 	if is_instance_valid(flashlight_instance):
 		flashlight_instance.queue_free()
 
-
 # Echo signals up
 func on_SimpleBeam_body_entered(body):
 	emit_signal("flashlight_hit", body)

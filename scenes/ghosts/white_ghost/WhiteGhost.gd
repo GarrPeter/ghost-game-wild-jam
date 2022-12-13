@@ -6,11 +6,13 @@ var screen_size
 export var direction = PI / 2
 var frozen = false
 var drag_velocity = Vector2()
+var original_rotation
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$WhiteGhostAnimatedSprite.play()
 	screen_size = get_viewport_rect().size
+	original_rotation = self.rotation
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
