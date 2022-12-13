@@ -5,7 +5,7 @@ export (int) var speed
 export (float) var direction
 
 func move(_delta):
-	pass
+	push_error("move not set in " + self.get_name())
 
 func transfer_owner(child, former_parent, new_parent, new_position, new_rotation):
 	if child.get_parent() == former_parent:
@@ -16,7 +16,7 @@ func transfer_owner(child, former_parent, new_parent, new_position, new_rotation
 		yield(new_parent.get_tree(), "idle_frame")
 
 func on_flashlight_hit(_source):
-	pass
+	push_error("on_flashlight_hit not set in " + self.get_name())
 
 func on_flashlight_exit(_source):
-	pass
+	push_error("on_flashlight_exit not set in " + self.get_name())

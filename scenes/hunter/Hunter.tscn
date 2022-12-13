@@ -17,5 +17,5 @@ texture = ExtResource( 2 )
 position = Vector2( -7, -1 )
 shape = SubResource( 2 )
 
-[node name="FlashlightPosition" type="Position2D" parent="."]
+[node name="HunterFlashlightPosition" type="Position2D" parent="."]
 position = Vector2( 13, -13 )
