@@ -1,0 +1,28 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://sprites/simple_beam/beam_0.png" type="Texture" id=1]
+[ext_resource path="res://sprites/simple_beam/beam_1.png" type="Texture" id=2]
+[ext_resource path="res://sprites/simple_beam/beam_2.png" type="Texture" id=3]
+[ext_resource path="res://scenes/flashlight/simple_beam/SimpleBeam.gd" type="Script" id=4]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 1 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 2 ) ],
+"loop": true,
+"name": "default",
+"speed": 10.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 21, 45.5 )
+
+[node name="SimpleBeam" type="Area2D"]
+script = ExtResource( 4 )
+
+[node name="SimpleBeamAnimatedSprite" type="AnimatedSprite" parent="."]
+scale = Vector2( 2, 4 )
+frames = SubResource( 1 )
+
+[node name="SimpleBeamCollisionBox" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -0.5 )
+shape = SubResource( 2 )
