@@ -7,6 +7,7 @@ signal flashlight_exit
 export var flashlight = preload("res://scenes/flashlight/simple_beam/SimpleBeam.tscn")
 export var speed = 300
 var screen_size
+var captured_ghosts = []
 
 var flashlight_instance
 const flashlight_offset = Vector2(15, -58)

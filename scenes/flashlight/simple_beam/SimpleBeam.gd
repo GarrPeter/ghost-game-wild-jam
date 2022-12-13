@@ -19,12 +19,3 @@ func add_body_entered_handler(object, methodName):
 
 func add_body_exited_handler(object, methodName):
 	self.connect("body_exited", object, methodName)
-
-
-#func _on_SimpleBeam_body_entered(body):
-#	emit_signal("flashlight_hit", body)
-#
-#
-#
-#func _on_SimpleBeam_body_exited(body):
-#	emit_signal("flashlight_exit", body)
