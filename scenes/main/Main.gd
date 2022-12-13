@@ -24,7 +24,7 @@ func _on_flashlight_hit(body):
 				body,
 				self,
 				$Hunter, 
-				Vector2($Hunter.flashlight_offset.x,
+				Vector2($Hunter.get_node("FlashlightPosition").position.x,
 						$Hunter.to_local(body.position).y),
 				body.rotation - $Hunter.rotation)
 			body.freeze()
