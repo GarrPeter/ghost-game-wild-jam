@@ -7,9 +7,7 @@ export(Dictionary) var TILE_SCENE := {
 onready var half_size_cell := cell_size * 0.5
 
 func _ready():
-	print("ready1")
 	yield(get_tree(), "idle_frame")
-	print("ready")
 	_replace_tiles_with_scenes()
 
 func _replace_tiles_with_scenes(scene_dictionary: Dictionary = TILE_SCENE):
@@ -28,7 +26,6 @@ func _replace_tile_with_object(tile_pos: Vector2, object_scene: PackedScene, par
 	
 	if object_scene:
 		var obj = object_scene.instance()
-		print(map_to_world(tile_pos))
 		var new_pos = map_to_world(tile_pos)+ half_size_cell
 		new_pos.x = new_pos.x * scale.x
 		new_pos.y = new_pos.y * scale.y

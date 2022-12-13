@@ -1,9 +1,9 @@
 [gd_scene load_steps=15 format=2]
 
-[ext_resource path="res://assets/tilemap_packed.png" type="Texture" id=1]
-[ext_resource path="res://ObjectsTilemap.gd" type="Script" id=2]
-[ext_resource path="res://scenes/hunter/Hunter.tscn" type="PackedScene" id=3]
-[ext_resource path="res://CaptureBox.tscn" type="PackedScene" id=4]
+[ext_resource path="res://ObjectsTilemap.gd" type="Script" id=1]
+[ext_resource path="res://scenes/hunter/Hunter.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/objects/CaptureBox.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/tilemap_packed.png" type="Texture" id=4]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 3.84375, 0.09375, 3.84375, 0.09375, 3.84375, 9.84375, 16, 9.78125, 16, 16, 0.03125, 16, 0, 0 )
@@ -31,7 +31,7 @@ points = PoolVector2Array( 0, 0, 4.03125, 0, 4.03125, 16, 0, 16 )
 
 [sub_resource type="TileSet" id=9]
 0/name = "tilemap_packed.png 0"
-0/texture = ExtResource( 1 )
+0/texture = ExtResource( 4 )
 0/tex_offset = Vector2( 0, 0 )
 0/modulate = Color( 1, 1, 1, 1 )
 0/region = Rect2( 128, 80, 16, 16 )
@@ -52,7 +52,7 @@ points = PoolVector2Array( 0, 0, 4.03125, 0, 4.03125, 16, 0, 16 )
 } ]
 0/z_index = 0
 1/name = "tilemap_packed.png 1"
-1/texture = ExtResource( 1 )
+1/texture = ExtResource( 4 )
 1/tex_offset = Vector2( 0, 0 )
 1/modulate = Color( 1, 1, 1, 1 )
 1/region = Rect2( 144, 80, 16, 16 )
@@ -73,7 +73,7 @@ points = PoolVector2Array( 0, 0, 4.03125, 0, 4.03125, 16, 0, 16 )
 } ]
 1/z_index = 0
 2/name = "tilemap_packed.png 2"
-2/texture = ExtResource( 1 )
+2/texture = ExtResource( 4 )
 2/tex_offset = Vector2( 0, 0 )
 2/modulate = Color( 1, 1, 1, 1 )
 2/region = Rect2( 160, 80, 16, 16 )
@@ -94,7 +94,7 @@ points = PoolVector2Array( 0, 0, 4.03125, 0, 4.03125, 16, 0, 16 )
 } ]
 2/z_index = 0
 3/name = "tilemap_packed.png 3"
-3/texture = ExtResource( 1 )
+3/texture = ExtResource( 4 )
 3/tex_offset = Vector2( 0, 0 )
 3/modulate = Color( 1, 1, 1, 1 )
 3/region = Rect2( 160, 64, 16, 16 )
@@ -115,7 +115,7 @@ points = PoolVector2Array( 0, 0, 4.03125, 0, 4.03125, 16, 0, 16 )
 } ]
 3/z_index = 0
 4/name = "tilemap_packed.png 4"
-4/texture = ExtResource( 1 )
+4/texture = ExtResource( 4 )
 4/tex_offset = Vector2( 0, 0 )
 4/modulate = Color( 1, 1, 1, 1 )
 4/region = Rect2( 160, 48, 16, 16 )
@@ -136,7 +136,7 @@ points = PoolVector2Array( 0, 0, 4.03125, 0, 4.03125, 16, 0, 16 )
 } ]
 4/z_index = 0
 5/name = "tilemap_packed.png 5"
-5/texture = ExtResource( 1 )
+5/texture = ExtResource( 4 )
 5/tex_offset = Vector2( 0, 0 )
 5/modulate = Color( 1, 1, 1, 1 )
 5/region = Rect2( 144, 48, 16, 16 )
@@ -157,7 +157,7 @@ points = PoolVector2Array( 0, 0, 4.03125, 0, 4.03125, 16, 0, 16 )
 } ]
 5/z_index = 0
 6/name = "tilemap_packed.png 6"
-6/texture = ExtResource( 1 )
+6/texture = ExtResource( 4 )
 6/tex_offset = Vector2( 0, 0 )
 6/modulate = Color( 1, 1, 1, 1 )
 6/region = Rect2( 128, 48, 16, 16 )
@@ -178,7 +178,7 @@ points = PoolVector2Array( 0, 0, 4.03125, 0, 4.03125, 16, 0, 16 )
 } ]
 6/z_index = 0
 7/name = "tilemap_packed.png 7"
-7/texture = ExtResource( 1 )
+7/texture = ExtResource( 4 )
 7/tex_offset = Vector2( 0, 0 )
 7/modulate = Color( 1, 1, 1, 1 )
 7/region = Rect2( 128, 64, 16, 16 )
@@ -199,7 +199,7 @@ points = PoolVector2Array( 0, 0, 4.03125, 0, 4.03125, 16, 0, 16 )
 } ]
 7/z_index = 0
 8/name = "tilemap_packed.png 8"
-8/texture = ExtResource( 1 )
+8/texture = ExtResource( 4 )
 8/tex_offset = Vector2( 0, 0 )
 8/modulate = Color( 1, 1, 1, 1 )
 8/region = Rect2( 144, 64, 16, 16 )
@@ -215,7 +215,7 @@ points = PoolVector2Array( 0, 0, 4.03125, 0, 4.03125, 16, 0, 16 )
 
 [sub_resource type="TileSet" id=10]
 0/name = "tilemap_packed.png 0"
-0/texture = ExtResource( 1 )
+0/texture = ExtResource( 4 )
 0/tex_offset = Vector2( 0, 0 )
 0/modulate = Color( 1, 1, 1, 1 )
 0/region = Rect2( 48, 160, 16, 16 )
@@ -229,7 +229,7 @@ points = PoolVector2Array( 0, 0, 4.03125, 0, 4.03125, 16, 0, 16 )
 0/shapes = [  ]
 0/z_index = 0
 
-[node name="Node2D" type="Node2D"]
+[node name="Tilemap" type="Node2D"]
 
 [node name="Background" type="TileMap" parent="."]
 scale = Vector2( 4, 4 )
@@ -246,11 +246,11 @@ tile_set = SubResource( 10 )
 cell_size = Vector2( 16, 16 )
 format = 1
 tile_data = PoolIntArray( 327687, 0, 0 )
-script = ExtResource( 2 )
+script = ExtResource( 1 )
 TILE_SCENE = {
-0: ExtResource( 4 ),
-1: ExtResource( 4 )
+0: ExtResource( 3 ),
+1: ExtResource( 3 )
 }
 
-[node name="Hunter" parent="." instance=ExtResource( 3 )]
+[node name="Hunter" parent="." instance=ExtResource( 2 )]
 position = Vector2( 273, 158 )
