@@ -1,9 +1,6 @@
 extends KinematicBody2D
 class_name Hunter
 
-signal flashlight_hit
-signal flashlight_exit
-
 export var flashlight = preload("res://scenes/flashlight/simple_beam/SimpleBeam.tscn")
 export var speed = 300
 var screen_size
@@ -46,7 +43,7 @@ func use_flashlight(_delta):
 
 
 func calc_beam_start_position(beam_offset: Vector2):
-	return $FlashlightPosition.position - beam_offset
+	return $HunterFlashlightPosition.position - beam_offset
 
 func create_flashlight():
 	if not is_instance_valid(flashlight_instance) or flashlight_instance == null:
@@ -59,16 +56,15 @@ func remove_flashlight():
 	if is_instance_valid(flashlight_instance):
 		flashlight_instance.queue_free()
 
-# Echo signals up
-func on_SimpleBeam_body_entered(body):
+func on_flashlight_body_entered(body):
 	if body.has_method("on_flashlight_hit"):
 		body.on_flashlight_hit(self)
 
 
-func on_SimpleBeam_body_exited(body):
+func on_flashlight_body_exited(body):
 	if body.has_method("on_flashlight_exit"):
 		body.on_flashlight_exit(self)
 
 
 func get_relative_beam_position(position: Vector2):
-	return Vector2($FlashlightPosition.position.x, self.to_local(position).y)
+	return Vector2($HunterFlashlightPosition.position.x, self.to_local(position).y)
