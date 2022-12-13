@@ -1,4 +1,4 @@
-extends Area2D
+extends KinematicBody2D
 class_name Hunter
 
 signal flashlight_hit
@@ -39,11 +39,13 @@ func move(delta):
 			self.rotation = velocity.angle() + PI/2
 		velocity = velocity.normalized() * speed
 	
-	position += velocity * delta
-	var x_adjust = $HunterSprite.texture.get_width()/2
-	var y_adjust = $HunterSprite.texture.get_height()/2
-	position.x = clamp(position.x, x_adjust, screen_size.x - x_adjust)
-	position.y = clamp(position.y, y_adjust, screen_size.y - y_adjust)
+	
+	move_and_collide(velocity*delta)
+#	position += velocity * delta
+#	var x_adjust = $HunterSprite.texture.get_width()/2
+#	var y_adjust = $HunterSprite.texture.get_height()/2
+#	position.x = clamp(position.x, x_adjust, screen_size.x - x_adjust)
+#	position.y = clamp(position.y, y_adjust, screen_size.y - y_adjust)
 
 func use_flashlight(_delta):
 	if Input.is_action_pressed("toggle_flashlight"):

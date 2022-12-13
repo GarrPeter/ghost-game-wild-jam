@@ -14,10 +14,15 @@ _global_script_classes=[ {
 "language": "NativeScript",
 "path": "res://addons/godot-git-plugin/git_api.gdns"
 }, {
-"base": "Area2D",
+"base": "KinematicBody2D",
 "class": "Hunter",
 "language": "GDScript",
 "path": "res://scenes/hunter/Hunter.gd"
+}, {
+"base": "TileMap",
+"class": "ObjectsTilemap",
+"language": "GDScript",
+"path": "res://ObjectsTilemap.gd"
 }, {
 "base": "KinematicBody2D",
 "class": "WhiteGhost",
@@ -27,6 +32,7 @@ _global_script_classes=[ {
 _global_script_class_icons={
 "GitAPI": "",
 "Hunter": "",
+"ObjectsTilemap": "",
 "WhiteGhost": ""
 }
 
