@@ -61,7 +61,14 @@ func remove_flashlight():
 
 # Echo signals up
 func on_SimpleBeam_body_entered(body):
-	emit_signal("flashlight_hit", body)
+	if body.has_method("on_flashlight_hit"):
+		body.on_flashlight_hit(self)
+
 
 func on_SimpleBeam_body_exited(body):
-	emit_signal("flashlight_exit", body)
+	if body.has_method("on_flashlight_exit"):
+		body.on_flashlight_exit(self)
+
+
+func get_relative_beam_position(position: Vector2):
+	return Vector2($FlashlightPosition.position.x, self.to_local(position).y)
