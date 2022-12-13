@@ -1,12 +1,10 @@
-extends KinematicBody2D
+extends AbstractGhost
 class_name WhiteGhost
 
-var speed = 150
 var screen_size
-export var direction = PI / 2
-var frozen = false
 var original_rotation
 var old_parent
+var frozen = false
 
 func _ready():
 	$WhiteGhostAnimatedSprite.play()
@@ -49,14 +47,6 @@ func freeze():
 
 func unfreeze():
 	self.frozen = false
-
-func transfer_owner(child, former_parent, new_parent, new_position, new_rotation):
-	if child.get_parent() == former_parent:
-		former_parent.remove_child(child)
-		child.position = new_position
-		child.rotation = new_rotation
-		new_parent.call_deferred("add_child", child)
-		yield(new_parent.get_tree(), "idle_frame")
 
 func on_flashlight_hit(source):
 	if not self.frozen and get_parent() == old_parent:

@@ -1,9 +1,6 @@
 extends KinematicBody2D
 class_name Hunter
 
-signal flashlight_hit
-signal flashlight_exit
-
 export var flashlight = preload("res://scenes/flashlight/simple_beam/SimpleBeam.tscn")
 export var speed = 300
 var screen_size
