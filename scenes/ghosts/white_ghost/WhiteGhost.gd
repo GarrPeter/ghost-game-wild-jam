@@ -26,7 +26,8 @@ func move(delta):
 	handle_border_collision()
 
 	if collision:
-		pass
+		if not frozen:
+			collision_bounce()
 
 func handle_border_collision():
 	var x_adjust = $WhiteGhostCollisionShape.shape.radius
@@ -37,8 +38,11 @@ func handle_border_collision():
 		position.x = clamp_x
 		position.y = clamp_y
 		if not frozen:
-			var new_direction = self.direction - PI
-			self.direction = rand_range(-PI/4, PI/4) + new_direction
+			collision_bounce()
+
+func collision_bounce():
+	var new_direction = self.direction - PI
+	self.direction = rand_range(-PI/4, PI/4) + new_direction
 
 func freeze():
 	self.frozen = true
