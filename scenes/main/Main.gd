@@ -6,8 +6,8 @@ func _ready():
 
 
 func initialize_hunter_signals():
-	$Hunter.connect("flashlight_hit", self, "_on_flashlight_hit")
-	$Hunter.connect("flashlight_exit", self, "_on_flashlight_exit")
+	var _error = $Hunter.connect("flashlight_hit", self, "_on_flashlight_hit")
+	_error = $Hunter.connect("flashlight_exit", self, "_on_flashlight_exit")
 
 func transfer_owner(child, old_parent, new_parent, new_position, new_rotation):
 	if child.get_parent() == old_parent:
