@@ -6,11 +6,13 @@ var screen_size
 export var direction = PI / 2
 var frozen = false
 var original_rotation
+var old_parent
 
 func _ready():
 	$WhiteGhostAnimatedSprite.play()
 	screen_size = get_viewport_rect().size
 	original_rotation = self.rotation
+	old_parent = self.get_parent()
 
 func _physics_process(delta):
 	if not frozen:
@@ -43,3 +45,31 @@ func freeze():
 
 func unfreeze():
 	self.frozen = false
+
+func transfer_owner(child, former_parent, new_parent, new_position, new_rotation):
+	if child.get_parent() == former_parent:
+		former_parent.remove_child(child)
+		child.position = new_position
+		child.rotation = new_rotation
+		new_parent.call_deferred("add_child", child)
+		yield(new_parent.get_tree(), "idle_frame")
+
+func on_flashlight_hit(source):
+	if not self.frozen and get_parent() == old_parent:
+		transfer_owner(
+			self,
+			old_parent,
+			source,
+			source.get_relative_beam_position(self.position),
+			self.rotation - source.rotation)
+		self.freeze()
+
+func on_flashlight_exit(source):
+	if self.frozen and get_parent() != old_parent:
+		transfer_owner(
+			self,
+			source,
+			old_parent,
+			self.get_global_position(),
+			self.original_rotation)
+		self.unfreeze()
