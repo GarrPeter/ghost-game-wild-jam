@@ -1,5 +1,13 @@
-extends Node2D
+extends Area2D
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
+var captive_ghosts = 0
+
+signal ghost_captured
+
+func capture_ghost(ghost: AbstractGhost):
+	captive_ghosts = captive_ghosts + 1
+	emit_signal("ghost_captured", ghost)
+
+func _on_CaptureBox_body_entered(body):
+	if body.has_method("on_capture_box_enter"):
+		body.on_capture_box_enter(self)
