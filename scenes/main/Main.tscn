@@ -1,17 +1,15 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://scenes/main/Main.gd" type="Script" id=1]
 [ext_resource path="res://scenes/hunter/Hunter.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/ghosts/white_ghost/WhiteGhost.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/tilemaps/Tilemaps.tscn" type="PackedScene" id=4]
 
 [node name="Main" type="Node2D"]
-script = ExtResource( 1 )
 
 [node name="Hunter" parent="." instance=ExtResource( 2 )]
-position = Vector2( 261, 432 )
+position = Vector2( 391, 369 )
 
 [node name="WhiteGhost" parent="." instance=ExtResource( 3 )]
-position = Vector2( 491, 147 )
+position = Vector2( 540, 258 )
 
 [node name="Tilemap" parent="." instance=ExtResource( 4 )]

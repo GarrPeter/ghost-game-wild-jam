@@ -44,12 +44,14 @@ func collision_bounce():
 
 func freeze():
 	self.frozen = true
+	self.capturable = true
 
 func unfreeze():
 	self.frozen = false
+	self.capturable = false
 
 func on_flashlight_hit(source):
-	if not self.frozen and get_parent() == old_parent:
+	if not self.captured and not self.frozen and get_parent() == old_parent:
 		transfer_owner(
 			self,
 			old_parent,
@@ -59,7 +61,7 @@ func on_flashlight_hit(source):
 		self.freeze()
 
 func on_flashlight_exit(source):
-	if self.frozen and get_parent() != old_parent:
+	if not self.captured and self.frozen and get_parent() != old_parent:
 		transfer_owner(
 			self,
 			source,

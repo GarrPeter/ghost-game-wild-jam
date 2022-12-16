@@ -4,7 +4,7 @@ var captive_ghosts = 0
 
 signal ghost_captured
 
-func capture_ghost(ghost: AbstractGhost):
+func record_capture(ghost: AbstractGhost):
 	captive_ghosts = captive_ghosts + 1
 	emit_signal("ghost_captured", ghost)
 

@@ -4,6 +4,7 @@ class_name AbstractGhost
 export (int) var speed
 export (float) var direction
 export (bool) var capturable
+var captured = false  # Set to true to avoid any additional logic
 
 func move(_delta):
 	push_error("move not set in " + self.get_name())
@@ -24,5 +25,7 @@ func on_flashlight_exit(_source):
 
 func on_capture_box_enter(source):
 	# Can be changed to have more logic later
-	source.capture_ghost(self)
-	queue_free()
+	if self.capturable:
+		self.captured = true
+		source.record_capture(self)
+		queue_free()
