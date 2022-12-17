@@ -6,10 +6,17 @@ export var speed = 300
 var screen_size
 
 var flashlight_instance
+var battery setget battery_set
+signal battery_changed
 
 
 func _ready():
 	screen_size = get_viewport_rect().size
+	
+	# Establish starting flashlight battery
+	var temp_flashlight = flashlight.instance()
+	self.battery = temp_flashlight.battery
+	temp_flashlight.queue_free()
 
 
 func _process(delta):
@@ -49,6 +56,7 @@ func create_flashlight():
 	if not is_instance_valid(flashlight_instance) or flashlight_instance == null:
 		flashlight_instance = flashlight.instance()
 		flashlight_instance.position = calc_beam_start_position(flashlight_instance.beam_offset())
+		self.battery -= flashlight_instance.battery_activate_cost
 		self.add_child(flashlight_instance)
 		flashlight_instance.initialize_signals(self)
 
@@ -65,6 +73,12 @@ func on_flashlight_body_exited(body):
 	if body.has_method("on_flashlight_exit"):
 		body.on_flashlight_exit(self)
 
+func on_beam_battery_delta(delta):
+	self.battery += delta
 
 func get_relative_beam_position(position: Vector2):
 	return Vector2($HunterFlashlightPosition.position.x, self.to_local(position).y)
+
+func battery_set(value):
+	battery = value
+	emit_signal("battery_changed", value)
