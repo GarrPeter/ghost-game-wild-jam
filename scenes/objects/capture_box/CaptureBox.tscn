@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 16, 13 )
 
-[node name="CaptureBox" type="Area2D"]
+[node name="CaptureBox" type="Area2D" groups=["capture_boxes"]]
 script = ExtResource( 2 )
 
 [node name="CaptureBoxSprite" type="Sprite" parent="."]

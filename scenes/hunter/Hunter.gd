@@ -82,3 +82,11 @@ func get_relative_beam_position(position: Vector2):
 func battery_set(value):
 	battery = value
 	emit_signal("battery_changed", value)
+
+func initialize_signals(object):
+#	Wrapper to initialize any signals. These are connected to the parent (Main/Level scenes)
+#	in order to 'bubble' the signal up.
+	self.add_battery_changed_handler(object, "on_battery_changed")
+
+func add_battery_changed_handler(object, methodName):
+	var _error = self.connect("battery_changed", object, methodName)
