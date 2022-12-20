@@ -4,7 +4,7 @@ const GHOSTS_REMAINING_LABEL = "Ghosts Remaining: %s"
 const BATTERY_LABEL = "Battery Remaining: %s"
 
 var ghosts_remaining = 0 setget ghosts_remaining_set
-var battery_remaining = 100 setget battery_remaining_set
+var battery_remaining = 0 setget battery_remaining_set
 
 func _ready():
 	$GhostsRemainingLabel.text = GHOSTS_REMAINING_LABEL % ghosts_remaining
